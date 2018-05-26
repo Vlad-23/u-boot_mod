@@ -50,8 +50,8 @@ export SUB_MAKE_CMD = $(MAKE) --silent --no-print-directory \
 # IMG_LZMA =
 
 # Define _absolute_ path to your toolchain directory, for example:
-# export TOOLCHAIN_DIR:=/home/user/toolchain-mips_24kc_gcc-5.4.0_musl-1.1.15
-# export PATH:=$(TOOLCHAIN_DIR)/bin:$(PATH)
+export TOOLCHAIN_DIR:=/home/vlad/Documents/source/staging_dir/toolchain-mips_24kc_gcc-7.3.0_musl
+export PATH:=$(TOOLCHAIN_DIR)/bin:$(PATH)
 
 ifndef CROSS_COMPILE
   CROSS_COMPILE = mips-openwrt-linux-musl-
@@ -294,7 +294,8 @@ zbtlink_zbt-we1526:
 
 tp-link_tl-wdr3600_v1 \
 tp-link_tl-wdr43x0_v1 \
-tp-link_tl-wr1041n_v2:
+tp-link_tl-wr1041n_v2 \
+tp-link_tl-wr1043n_v2:
 	@$(call build,123,1,ETH_CONFIG=_s17)
 
 unwireddevices_unwired-one:

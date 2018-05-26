@@ -387,6 +387,10 @@ qca953x_common: unconfig config_common
 	@$(call define_add,CONFIG_ATHEROS,1)
 	@$(call define_add,CONFIG_MACH_QCA953x,1)
 
+qca955x_common: unconfig config_common
+	@$(call define_add,CONFIG_ATHEROS,1)
+	@$(call define_add,CONFIG_MACH_QCA955x,1)
+
 lsdk_kernel:
 	@$(call define_add,CONFIG_LSDK_KERNEL,1)
 
@@ -680,6 +684,14 @@ tp-link_tl-wr1041n_v2: ar934x_common lsdk_kernel
 	@$(call define_add,CFG_ATHRS17_PHY,1)
 	@$(call define_add,CFG_AG7240_NMACS,1)
 	@$(call define_add,CFG_DUAL_PHY_SUPPORT,1)
+	@$(MKCONFIG) -a db12x mips mips db12x ar7240 ar7240
+
+tp-link_tl-wr1043n_v2: qca955x_common lsdk_kernel
+	@$(call config_init,TP-Link TL-WR1043N/D v2,tl-wr1043nd-v2,16,1,1,QCA_QCA9558_SOC)
+	@$(call define_add,CONFIG_FOR_TPLINK_WR1043N_V2,1)
+	@$(call define_add,CONFIG_USB,1)
+	@$(call define_add,CFG_ATHRS17_PHY,1)
+	@$(call define_add,CFG_AG7240_NMACS,1)
 	@$(MKCONFIG) -a db12x mips mips db12x ar7240 ar7240
 
 tp-link_tl-wr703n_v1: ar933x_common lsdk_kernel
